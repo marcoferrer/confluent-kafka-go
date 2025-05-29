@@ -176,7 +176,6 @@ out:
 			// Consumer fetch event, new message.
 			// Extracted into temporary gMsg for optimization
 			retval = h.newMessageFromGlueMsg(&gMsg)
-			defer C.free(unsafe.Pointer(gMsg.msg))
 
 		case C.RD_KAFKA_EVENT_REBALANCE:
 			// Consumer rebalance event

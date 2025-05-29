@@ -131,6 +131,7 @@ func (h *handle) newMessageFromGlueMsg(gMsg *C.glue_msg_t) (msg *Message) {
 	}
 
 	h.setupMessageFromC(msg, gMsg.msg)
+	C.free(unsafe.Pointer(gMsg.msg))
 
 	return msg
 }
